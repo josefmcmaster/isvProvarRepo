@@ -1,0 +1,55 @@
+<template>
+    <article class="slds-card">
+        <div class="slds-card__header slds-grid">
+            <header class="slds-media slds-media_center slds-has-flexi-truncate">
+                <div class="slds-media__figure">
+                    <span class="slds-icon_container slds-icon-standard-task" title="Weather Information">
+                        <svg class="slds-icon slds-icon_small" aria-hidden="true">
+                            <use xlink:href="/assets/icons/standard-sprite/svg/symbols.svg#map"></use>
+                        </svg>
+                        <span class="slds-assistive-text">Weather Information</span>
+                    </span>
+                </div>
+                <div class="slds-media__body">
+                    <h2 class="slds-card__header-title">
+                        <a href="#" class="slds-card__header-link slds-truncate" title="Weather Information">
+                            <span>Weather Information</span>
+                        </a>
+                    </h2>
+                    <button disabled={disabled} onclick={handleCallWeatherREST}
+                        class="slds-button slds-button_brand">Get Weather!</button>
+                </div>
+            </header>
+        </div>
+    </article>
+
+
+    <lightning-tabset class="tabIconClass" variant="vertical">
+        <lightning-tab label="Info" icon-name="utility:question">
+            <h3 class="slds-text-heading_medium">Weather Map Info</h3>
+            <p>Description: {desc}</p>
+            <p>Pressure: {pressure}</p>
+            <p>Humidity: {humidity}</p>
+        </lightning-tab>
+        <lightning-tab label="Temperature" icon-name="utility:frozen">
+            <h3 class="slds-text-heading_medium">Temperature Info</h3>
+            <p>Temperature: <lightning-formatted-number value={temp}
+                    maximum-fraction-digits="2"></lightning-formatted-number></p>
+            <p>Feels like: <lightning-formatted-number value={feelsLike}
+                    maximum-fraction-digits="2"></lightning-formatted-number></p>
+            <p>Minumum Temperature: <lightning-formatted-number value={tempMin}
+                    maximum-fraction-digits="2"></lightning-formatted-number></p>
+            <p>Max Temperature: <lightning-formatted-number value={tempMax}
+                    maximum-fraction-digits="2"></lightning-formatted-number></p>
+        </lightning-tab>
+        <div class="chandra">
+            <lightning-tab label="Wind Info" icon-name="utility:macros">
+                <h3 class="slds-text-heading_medium">Wind Info</h3>
+                <p>Wind Degress: {windDeg}</p>
+                <p>Wind Gust: {windGust}</p>
+                <p>Wind Speed: {windSpeed}</p>
+            </lightning-tab>
+        </div>
+    </lightning-tabset>
+</template>
+
