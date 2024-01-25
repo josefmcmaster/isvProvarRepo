@@ -1,18 +1,36 @@
-# Salesforce DX Project: Next Steps
+How to deploy GitHub sfdx project from Github to Vscode.
 
-Now that you’ve created a Salesforce DX project, what’s next? Here are some documentation resources to get you started.
 
-## How Do You Plan to Deploy Your Changes?
+1) When first opening VSCode you will be shown the Welcome page, here you can select the 'Clone Git Repository...' link.
+2) In the searchbox that appears at the top of the screen enter 'josefmcmaster/ISVProvarRepo' and select the item at the top of the list (the link should be: https://github.com/josefmcmaster/ISVProvarRepo.git)
+3) Then you will need to find a folder to clone the git repo into.
+4)  Once this has finished you are now setup to sync up your selected Dev sandbox and deploy the changes.
 
-Do you want to deploy a set of changes, or create a self-contained application? Choose a [development model](https://developer.salesforce.com/tools/vscode/en/user-guide/development-models).
+This should be everything that needs looking at without looking at the code. There may be a chance that the Remote Site Settings 'Open_Weather_Map' isn't active when you deploy so ensure that this has been set to active.
 
-## Configure Your Salesforce DX Project
+In terms of testing the solution there are two tasks that have been completed, the OpenWeather API which can be found on a Location__c record, and the Task Management LWC which can be found on the home page. Both LWC's may need adding to the page if they are not already showing after you have deployed the changes to your org.
 
-The `sfdx-project.json` file contains useful configuration information for your project. See [Salesforce DX Project Configuration](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_ws_config.htm) in the _Salesforce DX Developer Guide_ for details about this file.
+OpenWeather Task:
+---------------------------------------------------
+On the Details tab of a Location record you should be able to see the 'weatherDisplay' LWC which will from the start will not show any data on any of the tabs.
+- Create a Location record with the name of the area you are checking the longtitude and latitude for and also add values for the lat and long. Lat can only be between -90 to 90 and Long is -180 to -180. (There are validation rules that enforce this).
+- Select the 'Get Weather!' Button and you will see the information linked to this location populate accordingly on the three vertical tabs on the LWC.
+- If you go to the Related tab you can see that a new entry has been added which has the name of the Date and Time is was created and other useful information that was shown on the LWC.
+- The 'Get Weather!' button will disable after clicking it to prevent Users from mass creating WeatherInfo records.
 
-## Read All About It
 
-- [Salesforce Extensions Documentation](https://developer.salesforce.com/tools/vscode/)
-- [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
-- [Salesforce DX Developer Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_intro.htm)
-- [Salesforce CLI Command Reference](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_reference.meta/sfdx_cli_reference/cli_reference.htm)
+Task Manager Task:
+---------------------------------------------------
+This should be located on the Homepage.
+- Firstly ensure that there are at least 3 Task records assigned to the User your are testing with.
+- Now on the Homepage you should see the Tasks in a Datatable in the 'TaskManager' LWC.
+- If you click the 'Complete' button in the end column it will set that Task's Status to 'Complete', refresh the table and will also disable the button so it can no longer be used as it isn't needed.
+- If you click on the 'New' button in the top right of the LWC it will make a popup appear where you can create a new Task, once the Task has been created you will be navigated to the new Record's page.
+
+
+
+
+
+
+
+   
