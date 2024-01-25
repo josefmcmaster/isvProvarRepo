@@ -14,7 +14,6 @@ public with sharing class WeatherDisplayRESTCallout
     
     WeatherInfo wInfo = new WeatherInfo();
 
-    //Code within the test.isRunningTest() is populating the WeatherInfo object so testing can be carried out on this class.
     if(test.isRunningTest()){
       WeatherInfo.cls_main clsMain = new WeatherInfo.cls_main();
       List<WeatherInfo.cls_weather> weatherList = new List<WeatherInfo.cls_weather>();

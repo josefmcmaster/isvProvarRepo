@@ -83,7 +83,3 @@ private class TaskManagerControllerTest
         Assert.areEqual(taskRecordResult.Status, 'Completed', 'The task has not been completed');
     }
 }
-
-
-
-

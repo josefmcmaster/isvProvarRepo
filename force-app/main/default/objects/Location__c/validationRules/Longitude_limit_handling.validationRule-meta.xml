@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Longitude_limit_handling</fullName>
+    <active>true</active>
+    <description>Stops Longitude being lower than -180 or higher than 180</description>
+    <errorConditionFormula>OR( Longitude__c &lt; -180,Longitude__c &gt; 180)</errorConditionFormula>
+    <errorMessage>The Longitude value has to be between -180 and 180</errorMessage>
+</ValidationRule>

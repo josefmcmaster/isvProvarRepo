@@ -69,8 +69,3 @@ global class WeatherDisplayRESTCalloutTest{
 	}
 
 }
-
-
-
-
-    
